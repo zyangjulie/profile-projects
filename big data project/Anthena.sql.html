@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Anthena.sql</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Anthena.sql</font>
+</center></td></tr></table>
+<pre><span class="s0">CREATE EXTERNAL TABLE </span><span class="s1">`cc5`(</span>
+  <span class="s1">`tweet` string</span><span class="s0">,</span>
+  <span class="s1">`followers` </span><span class="s0">int,</span>
+  <span class="s1">`time` string</span><span class="s0">,</span>
+  <span class="s1">`sentiment` string</span><span class="s0">,</span>
+  <span class="s1">`label` </span><span class="s0">int,</span>
+  <span class="s1">`prediction` </span><span class="s0">int</span><span class="s1">)</span>
+<span class="s0">ROW </span><span class="s1">FORMAT DELIMITED</span>
+  <span class="s1">FIELDS TERMINATED </span><span class="s0">BY </span><span class="s2">','</span>
+<span class="s1">STORED </span><span class="s0">AS </span><span class="s1">INPUTFORMAT</span>
+  <span class="s2">'org.apache.hadoop.mapred.TextInputFormat'</span>
+<span class="s1">OUTPUTFORMAT</span>
+  <span class="s2">'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'</span>
+<span class="s1">LOCATION</span>
+  <span class="s2">'s3://wcd-julie/predictions_clean_v5'</span>
+<span class="s1">TBLPROPERTIES (</span>
+  <span class="s2">'has_encrypted_data'</span><span class="s1">=</span><span class="s2">'false'</span><span class="s0">,</span>
+  <span class="s2">'transient_lastDdlTime'</span><span class="s1">=</span><span class="s2">'1661804639'</span><span class="s1">)</span></pre>
+</body>
+</html>
